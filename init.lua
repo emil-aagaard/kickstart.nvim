@@ -607,6 +607,21 @@ require('lazy').setup({
         html = { filetypes = { 'html', 'htmldjango' } },
         cssls = {},
         ts_ls = {},
+        texlab = {
+          settings = {
+            texlab = {
+              build = {
+                executable = 'latexmk',
+                args = { '-pdf', '-interaction=nonstopmode', '-synctex=1', '%f' },
+                onSave = true,
+              },
+              forwardSearch = {
+                executable = 'skim',
+                args = { '--synctex-forward', '%l:1:%f', '%p' },
+              },
+            },
+          },
+        },
         --
         -- Some languages (like typescript) have entire language plugins that can be useful:
         --    https://github.com/pmizio/typescript-tools.nvim
@@ -705,12 +720,19 @@ require('lazy').setup({
         -- python = { "isort", "black" },
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
+        -- javascript = { "prettierd", "prettier", stop_after_first = true },
         rust = { 'rustfmt' },
         python = { 'ruff_format' },
         javascript = { 'prettier' },
         html = { 'prettier' },
         css = { 'prettier' },
-        json = { 'prettier' }, -- javascript = { "prettierd", "prettier", stop_after_first = true },
+        json = { 'prettier' },
+        tex = { 'latexindent' },
+      },
+      formatters = {
+        latexindent = {
+          prepend_args = { '-m' },
+        },
       },
     },
   },
