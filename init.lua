@@ -615,10 +615,6 @@ require('lazy').setup({
                 args = { '-pdf', '-interaction=nonstopmode', '-synctex=1', '%f' },
                 onSave = true,
               },
-              forwardSearch = {
-                executable = 'skim',
-                args = { '--synctex-forward', '%l:1:%f', '%p' },
-              },
             },
           },
         },
@@ -727,11 +723,12 @@ require('lazy').setup({
         html = { 'prettier' },
         css = { 'prettier' },
         json = { 'prettier' },
+        sql = { 'prettier' },
         tex = { 'latexindent' },
       },
       formatters = {
         latexindent = {
-          prepend_args = { '-m' },
+          prepend_args = { '-m', '-c', '/tmp/' },
         },
       },
     },
