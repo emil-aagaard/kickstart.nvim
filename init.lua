@@ -669,6 +669,7 @@ require('lazy').setup({
         -- You can add other tools here that you want Mason to install
         'prettier',
         'ruff',
+        'sql-formatter',
       })
 
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
@@ -723,8 +724,8 @@ require('lazy').setup({
         html = { 'prettier' },
         css = { 'prettier' },
         json = { 'prettier' },
-        sql = { 'prettier' },
         tex = { 'latexindent' },
+        sql = { 'sql_formatter' },
       },
       formatters = {
         latexindent = {
